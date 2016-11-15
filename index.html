@@ -1,87 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+  <title>JS Basics</title>
 </head>
 <body>
-  <h1>Tipos de datos en JS</h1>
-
-  Nombre: <input type="text" id="nombre"><br />
-  Edad: <input type="text" id="edad"><br />
-  Selecciona país:<br>
-  <select id="pais">
-    <option value="MX">Mexico</option>
-    <option value="US">Estados Unidos</option>
-    <option value="DE">Alemania</option>
-  </select><br />
-  <button type="button" onclick="verificarEdad();">Calcular!</button>
+  <h1>Calculador de edad</h1>
 
   <script>
-    // Ejercicios de https://s3.amazonaws.com/TrainingNerd/JavaScriptForBeginners/exercises/variables.html
-
-    /* // Ejercicio 1
-    var nombre = "Brian";
-    var edad = 32;
-    var profesion = "sensei";
-    var casado = false;
-
-    alert("Mi nombre es " + nombre + " y tengo " + edad + " años"
-          + " y soy " + profesion + ".");
-    */
-
-    /* // Ejercicio 2
-    var nac = prompt("En qué año naciste?");
-    var actual = prompt("Qué año es?");
-
-    alert("Tienes " + (actual - nac) + " años (o " + (actual - nac - 1) + ")");
-    */
-
-    /*
-    // Ejercicio 3
-    var edad = prompt("Cuál es tu edad?");
-    var edad_morir = prompt("A qué edad te vas a morir?");
-    var tacos = prompt("Cuántos tacos comes diario?");
-
-    alert("Necesitas " + ((edad_morir - edad) * tacos * 365) + " tacos");
-    */
-
-  /*
-   var edad = prompt("¿Qué edad tienes?");
-
-   if (edad >= 18) {
-     alert("Puedes entrar al antro.");
-   } else {
-     alert("Regrésate a tu casa.");
-   }
-   */
-
-  function verificarEdad() {
-    var nombre = document.getElementById('nombre').value;
-    var edad = document.getElementById('edad').value;
-    var pais = document.getElementById('pais').value;
+    var edad = prompt("¿Qué edad tienes?");
+    var pais = prompt("¿En qué país estás?");
 
     var edad_target;
-    switch (pais) {
-      case "MX":
-        edad_target = 18;
-        break;
-      case "US":
-        edad_target = 21;
-        break;
-      default:
-        alert("País desconocido: " + pais);
-        return;
+    if (pais == "MX") {
+      edad_target = 18;
+    }
+    if (pais == "US") {
+      edad_target = 21;
+    }
+    if (pais == "CU") {
+      edad_target = 16;
     }
 
     if (edad >= edad_target) {
-      alert(edad + " >= " + edad_target + ", puedes entrar al antro.");
+      alert("Puedes entrar al antro.");
     } else {
-      alert(edad + " < " + edad_target + ", regrésate a tu casa.");
+      alert("Regrésate a tu casa.");
     }
-  }
   </script>
 
 </body>
