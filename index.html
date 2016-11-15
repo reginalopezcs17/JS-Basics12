@@ -9,6 +9,16 @@
 <body>
   <h1>Tipos de datos en JS</h1>
 
+  Nombre: <input type="text" id="nombre"><br />
+  Edad: <input type="text" id="edad"><br />
+  Selecciona país:<br>
+  <select id="pais">
+    <option value="MX">Mexico</option>
+    <option value="US">Estados Unidos</option>
+    <option value="DE">Alemania</option>
+  </select><br />
+  <button type="button" onclick="verificarEdad();">Calcular!</button>
+
   <script>
     // Ejercicios de https://s3.amazonaws.com/TrainingNerd/JavaScriptForBeginners/exercises/variables.html
 
@@ -29,12 +39,49 @@
     alert("Tienes " + (actual - nac) + " años (o " + (actual - nac - 1) + ")");
     */
 
+    /*
     // Ejercicio 3
     var edad = prompt("Cuál es tu edad?");
     var edad_morir = prompt("A qué edad te vas a morir?");
     var tacos = prompt("Cuántos tacos comes diario?");
 
     alert("Necesitas " + ((edad_morir - edad) * tacos * 365) + " tacos");
+    */
+
+  /*
+   var edad = prompt("¿Qué edad tienes?");
+
+   if (edad >= 18) {
+     alert("Puedes entrar al antro.");
+   } else {
+     alert("Regrésate a tu casa.");
+   }
+   */
+
+  function verificarEdad() {
+    var nombre = document.getElementById('nombre').value;
+    var edad = document.getElementById('edad').value;
+    var pais = document.getElementById('pais').value;
+
+    var edad_target;
+    switch (pais) {
+      case "MX":
+        edad_target = 18;
+        break;
+      case "US":
+        edad_target = 21;
+        break;
+      default:
+        alert("País desconocido: " + pais);
+        return;
+    }
+
+    if (edad >= edad_target) {
+      alert(edad + " >= " + edad_target + ", puedes entrar al antro.");
+    } else {
+      alert(edad + " < " + edad_target + ", regrésate a tu casa.");
+    }
+  }
   </script>
 
 </body>
