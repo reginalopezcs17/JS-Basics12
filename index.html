@@ -1,34 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/main.css">
-  <title>JS Basics</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <title>JS Basics</title>
 </head>
+
 <body>
-  <h1>Calculador de edad</h1>
+    <h1>Calculador de edad</h1>
+    <div class="formulario">
+        Nombre: <input type="text" name="nombre" id="nombre"><br /> Edad: <input type="text" name="edad" id="edad"><br /> País:
+        <select name="pais" id="pais">
+      <option>Selecciona país</option>
+      <option value="MX">Mexico</option>
+      <option value="CU">Cuba</option>
+      <option value="US">Estados Unidos</option>
+    </select>
+        <br />
+        <button onclick="verificar();">Calcular!</button>
+        <button onclick="activar_saludar();">Saludar!</button>
+    </div>
+    <script>
+        function verificar() {
+            var edad = document.getElementById("edad").value;
+            var pais = document.getElementById("pais").value;
+            console.log("Pais: " + pais);
 
-  <script>
-    var edad = prompt("¿Qué edad tienes?");
-    var pais = prompt("¿En qué país estás?");
+            var edad_target; // undefined
 
-    var edad_target;
-    if (pais == "MX") {
-      edad_target = 18;
-    }
-    if (pais == "US") {
-      edad_target = 21;
-    }
-    if (pais == "CU") {
-      edad_target = 16;
-    }
 
-    if (edad >= edad_target) {
-      alert("Puedes entrar al antro.");
-    } else {
-      alert("Regrésate a tu casa.");
-    }
-  </script>
+            if (pais == "MX") {
+                //console.log("País es México");
+                edad_target = 18;
+            } else if (pais == "US") {
+                edad_target = 21;
+            } else if (pais == "CU") {
+                edad_target = 16;
+            } else {
+                console.log("Pais desconocido: " + pais);
+                alert("Por favor selecciona un país");
+                return;
+            }
+
+            if (edad >= edad_target) {
+                alert("Puedes entrar al antro.");
+            } else {
+                alert("Regrésate a casa!");
+            }
+        }
+
+        function activar_saludar() {
+            var nombre = document.querySelector("#nombre").value;
+            saludar(nombre);
+        }
+
+        function saludar(nombre) {
+            alert("Hola " + nombre);
+        }
+    </script>
 
 </body>
+
 </html>
